@@ -52,4 +52,6 @@ export
     clECCGetTotalErrorsWithCLMem,
     
     # high level OpenCL functions
-    clECCGetErrorName
+    clECCGetErrorName,
+    clECCGetTotalErrors!,
+    clECCGetTotalErrorsWithCLMem!
