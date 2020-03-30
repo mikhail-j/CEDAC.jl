@@ -2,3 +2,11 @@
 
 [[Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
+
+[[NVIDIALibraries]]
+deps = ["Libdl"]
+git-tree-sha1 = "b7c4c91bfc7fc977148d1d31e5a06f90cc612fd0"
+repo-rev = "master"
+repo-url = "https://github.com/Blackbody-Research/NVIDIALibraries.jl"
+uuid = "455bb3cc-869f-42f8-aad9-fcdd684af481"
+version = "1.0.0"

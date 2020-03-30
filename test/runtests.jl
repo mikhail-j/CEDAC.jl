@@ -17,4 +17,6 @@
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *=#
 
+using Test
+
 include("opencl_edac_test.jl")
