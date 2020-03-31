@@ -61,6 +61,15 @@ function clECCGetMemoryScrubbingInterval(handle::clECCHandle_t)::Culonglong
     return pop!(seconds)
 end
 
+function clECCInit()::clECCHandle_t
+    local handle::Array{clECCHandle_t, 1} = fill(clECCHandle_t(C_NULL), 1)
+
+    local result::Cint = clECCInit(handle)
+    @assert (result == OPENCL_EDAC_SUCCESS) ("clECCInit() error: " * clECCGetErrorName(result))
+
+    return pop!(handle)
+end
+
 function clECCAddMemObject(handle::clECCHandle_t, device_memory::cl_mem, device_queue::cl_command_queue)::clECCMemObject_t
     local memory_object::Array{clECCMemObject_t, 1} = fill(clECCMemObject_t(C_NULL), 1)
 
