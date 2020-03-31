@@ -86,7 +86,7 @@ end
 function clECCGetMemObjectParityBits(handle::clECCHandle_t, memory_object::clECCMemObject_t)::cl_mem
     local parity_memory::Array{cl_mem, 1} = fill(cl_mem(C_NULL), 1)
 
-    local result::cl_int = clECCGetMemObjectParityBits(handle, memory_object, parity_memory)
+    local result::Cint = clECCGetMemObjectParityBits(handle, memory_object, parity_memory)
     @assert (result == OPENCL_EDAC_SUCCESS) ("clECCGetMemObjectParityBits() error: " * clECCGetErrorName(result))
 
     return pop!(parity_memory)
@@ -95,7 +95,7 @@ end
 function clECCGetMemObjectParityBitsWithCLMem(handle::clECCHandle_t, device_memory::cl_mem)::cl_mem
     local parity_memory::Array{cl_mem, 1} = fill(cl_mem(C_NULL), 1)
 
-    local result::cl_int = clECCGetMemObjectParityBitsWithCLMem(handle, device_memory, parity_memory)
+    local result::Cint = clECCGetMemObjectParityBitsWithCLMem(handle, device_memory, parity_memory)
     @assert (result == OPENCL_EDAC_SUCCESS) ("clECCGetMemObjectParityBitsWithCLMem() error: " * clECCGetErrorName(result))
 
     return pop!(parity_memory)

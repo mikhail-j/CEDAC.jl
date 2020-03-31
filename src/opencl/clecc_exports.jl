@@ -28,8 +28,7 @@ export
     OPENCL_EDAC_MEM_OBJECT_NOT_FOUND,
     OPENCL_EDAC_INVALID_HSIAO_72_64_VERSION,
     clECCMemObject_t,
-    clECCMemObjectList_t,
-    clECCHandle_t, 
+    clECCHandle_t,
 
     # functions
     clGetErrorName,
@@ -50,7 +49,7 @@ export
     clECCGetMemObjectParityBitsWithCLMem,
     clECCGetTotalErrors,
     clECCGetTotalErrorsWithCLMem,
-    
+
     # high level OpenCL functions
     clECCGetErrorName,
     clECCGetTotalErrors!,
