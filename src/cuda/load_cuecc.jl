@@ -1,5 +1,5 @@
 #=*
-* Load libclecc library definitions and functions
+* Load libcuecc library
 *
 * Copyright (C) 2020 Qijia (Michael) Jin
 * 
@@ -17,10 +17,6 @@
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *=#
 
-module CEDAC
+using Libdl
 
-include("opencl/clecc.jl")
-
-include("cuda/cuecc.jl")
-
-end
+const libcuecc = Libdl.find_library(["libcuecc", "cuecc"])

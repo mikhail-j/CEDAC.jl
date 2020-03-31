@@ -20,3 +20,4 @@
 using Test
 
 include("opencl_edac_test.jl")
+include("cuda_edac_test.jl")

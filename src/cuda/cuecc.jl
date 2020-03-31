@@ -1,5 +1,5 @@
 #=*
-* Load libclecc library definitions and functions
+* Load libcuecc library definitions and functions
 *
 * Copyright (C) 2020 Qijia (Michael) Jin
 * 
@@ -17,10 +17,18 @@
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *=#
 
-module CEDAC
+module CUECC
+using NVIDIALibraries
+@using_nvidialib_settings()
 
-include("opencl/clecc.jl")
+include("cuecc_exports.jl")
 
-include("cuda/cuecc.jl")
+include("load_cuecc.jl")
+
+include("cuecc_constants.jl")
+
+include("cuecc_functions.jl")
+
+include("high_level_cuecc.jl")
 
 end

@@ -1,5 +1,5 @@
 #=*
-* Load libclecc library definitions and functions
+* libcuecc library definitions
 *
 * Copyright (C) 2020 Qijia (Michael) Jin
 * 
@@ -17,10 +17,14 @@
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 *=#
 
-module CEDAC
+const CUDA_EDAC_SUCCESS                      = Cint(0)
+const CUDA_EDAC_INVALID_ARGUMENT             = Cint(-1)
+const CUDA_EDAC_OUT_OF_MEMORY                = Cint(-2)
+const CUDA_EDAC_PTHREAD_ERROR                = Cint(-3)
+const CUDA_EDAC_MEMORY_OBJECT_ALREADY_IN_USE = Cint(-4)
+const CUDA_EDAC_MEMORY_OBJECT_NOT_FOUND      = Cint(-5)
+const CUDA_EDAC_INVALID_HSIAO_72_64_VERSION  = Cint(-6)
 
-include("opencl/clecc.jl")
+const cudaECCMemoryObject_t = Ptr{Nothing}
 
-include("cuda/cuecc.jl")
-
-end
+const cudaECCHandle_t = Ptr{Nothing}
