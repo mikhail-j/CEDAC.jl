@@ -57,8 +57,8 @@ function cuECCInit(handle::Ptr{cudaECCHandle_t})::Cint
     return ccall((:cuECCInit, libcuecc), Cint, (Ptr{cudaECCHandle_t},), handle)
 end
 
-function cuECCDestroy(handle::cudaECCHandle_t)::Cint
-    return ccall((:cuECCDestroy, libcuecc), Cint, (cudaECCHandle_t,), handle)
+function cuECCDestroy(handle::cudaECCHandle_t)::Nothing
+    return ccall((:cuECCDestroy, libcuecc), Nothing, (cudaECCHandle_t,), handle)
 end
 
 function cuECCAddMemoryObject(handle::cudaECCHandle_t, device_memory::CUdeviceptr, memory_object::Array{cudaECCMemoryObject_t, 1})::Cint

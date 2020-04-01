@@ -74,7 +74,7 @@ total_errors = zeros(UInt64, 2)
 cuECCGetTotalErrorsWithDevicePointer!(handle, d_B.ptr, total_errors)
 cuECCGetTotalErrors!(handle, mem_A, total_errors)
 
-@test (cuECCDestroy(handle) == CUDA_SUCCESS)
+cuECCDestroy(handle)
 
 deallocate!(d_C)
 deallocate!(d_B)

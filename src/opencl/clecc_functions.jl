@@ -69,8 +69,8 @@ function clECCInit(handle::Ptr{clECCHandle_t})::Cint
     return ccall((:clECCInit, libclecc), Cint, (Ptr{clECCHandle_t},), handle)
 end
 
-function clECCDestroy(handle::clECCHandle_t)::Cint
-    return ccall((:clECCDestroy, libclecc), Cint, (clECCHandle_t,), handle)
+function clECCDestroy(handle::clECCHandle_t)::Nothing
+    return ccall((:clECCDestroy, libclecc), Nothing, (clECCHandle_t,), handle)
 end
 
 function clECCAddMemObject(handle::clECCHandle_t, device_memory::cl_mem, device_queue::cl_command_queue, memory_object::Array{clECCMemObject_t, 1})::Cint

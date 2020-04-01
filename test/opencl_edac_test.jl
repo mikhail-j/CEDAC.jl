@@ -91,7 +91,7 @@ clECCGetTotalErrors!(handle, mem_A, total_errors)
 @test (clECCRemoveMemObjectWithCLMem(handle, d_C) == OPENCL_EDAC_SUCCESS)
 @test (clECCRemoveMemObject(handle, mem_A) == OPENCL_EDAC_SUCCESS)
 
-@test (clECCDestroy(handle) == OPENCL_EDAC_SUCCESS) 
+clECCDestroy(handle)
 
 @test (clReleaseCommandQueue(opencl_queue) == CL_SUCCESS)
 @test (clReleaseMemObject(d_C) == CL_SUCCESS)
