@@ -7,6 +7,9 @@ This package is a Julia library written for Julia 1.0 and onwards.
 
 CEDAC.jl defines C definitions and functions as they would appear in a C project.
 
+## Prerequisites
+-[CEDAC](https://github.com/mikhail-j/CEDAC)
+
 ## How do I add this Julia package?
 
 Enter the Pkg REPL-mode from the Julia REPL by using the key `]`.
