@@ -49,6 +49,8 @@ export
     clECCGetMemObjectParityBitsWithCLMem,
     clECCGetTotalErrors,
     clECCGetTotalErrorsWithCLMem,
+    clECCGetTotalErrorsSize,
+    clECCGetTotalErrorsSizeWithCLMem,
 
     # high level OpenCL functions
     clECCGetErrorName,

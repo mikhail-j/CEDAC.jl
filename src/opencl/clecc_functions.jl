@@ -128,3 +128,19 @@ end
 function clECCGetTotalErrorsWithCLMem(handle::clECCHandle_t, device_memory::cl_mem, errors::Ptr{UInt64}, error_size::Csize_t)::Cint
     return ccall((:clECCGetTotalErrorsWithCLMem, libclecc), Cint, (clECCHandle_t, cl_mem, Ptr{UInt64}, Csize_t,), handle, device_memory, errors, error_size)
 end
+
+function clECCGetTotalErrorsSize(memory_object::clECCMemObject_t, errors_size::Array{Csize_t, 1})::Cint
+    return ccall((:clECCGetTotalErrorsSize, libclecc), Cint, (clECCMemObject_t, Ref{Csize_t},), memory_object, Base.cconvert(Ref{Csize_t}, errors_size))
+end
+
+function clECCGetTotalErrorsSize(memory_object::clECCMemObject_t, errors_size::Ptr{Csize_t})::Cint
+    return ccall((:clECCGetTotalErrorsSize, libclecc), Cint, (clECCMemObject_t, Ptr{Csize_t},), memory_object, errors_size)
+end
+
+function clECCGetTotalErrorsSizeWithCLMem(handle::clECCHandle_t, device_memory::cl_mem, errors_size::Array{Csize_t, 1})::Cint
+    return ccall((:clECCGetTotalErrorsSizeWithCLMem, libclecc), Cint, (clECCHandle_t, cl_mem, Ref{Csize_t},), handle, device_memory, Base.cconvert(Ref{Csize_t}, errors_size))
+end
+
+function clECCGetTotalErrorsSizeWithCLMem(handle::clECCHandle_t, device_memory::cl_mem, errors_size::Ptr{Csize_t})::Cint
+    return ccall((:clECCGetTotalErrorsSizeWithCLMem, libclecc), Cint, (clECCHandle_t, cl_mem, Ptr{Csize_t},), handle, device_memory, errors_size)
+end

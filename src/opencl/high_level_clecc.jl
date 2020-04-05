@@ -109,3 +109,21 @@ function clECCGetMemObjectParityBitsWithCLMem(handle::clECCHandle_t, device_memo
 
     return pop!(parity_memory)
 end
+
+function clECCGetTotalErrorsSize(memory_object::clECCMemObject_t)::Csize_t
+    local total_errors_size::Array{Csize_t, 1} = zeros(Csize_t, 1)
+
+    local result::Cint = clECCGetTotalErrorsSize(memory_object, total_errors_size)
+    @assert (result == OPENCL_EDAC_SUCCESS) ("clECCGetTotalErrorsSize() error: " * clECCGetErrorName(result))
+
+    return pop!(total_errors_size)
+end
+
+function clECCGetTotalErrorsSizeWithCLMem(handle::clECCHandle_t, device_memory::cl_mem)::Csize_t
+    local total_errors_size::Array{Csize_t, 1} = zeros(Csize_t, 1)
+
+    local result::Cint = clECCGetTotalErrorsSizeWithCLMem(handle, device_memory, total_errors_size)
+    @assert (result == OPENCL_EDAC_SUCCESS) ("clECCGetTotalErrorsSizeWithCLMem() error: " * clECCGetErrorName(result))
+
+    return pop!(total_errors_size)
+end
