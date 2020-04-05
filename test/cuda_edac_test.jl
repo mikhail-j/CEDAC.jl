@@ -74,6 +74,9 @@ parity_B = cuECCGetMemoryObjectParityBitsWithDevicePointer(handle, d_B.ptr)
 
 total_errors = zeros(UInt64, 2)
 cuECCGetTotalErrorsWithDevicePointer!(handle, d_B.ptr, total_errors)
+
+@test (cuECCGetTotalErrorsSize(mem_A) === Csize_t(2 * sizeof(UInt64)))
+
 cuECCGetTotalErrors!(handle, mem_A, total_errors)
 
 cuECCDestroy(handle)
