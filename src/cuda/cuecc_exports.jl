@@ -47,6 +47,8 @@ export
     cuECCGetMemoryObjectParityBitsWithDevicePointer,
     cuECCGetTotalErrors,
     cuECCGetTotalErrorsWithDevicePointer,
+    cuECCGetTotalErrorsSize,
+    cuECCGetTotalErrorsSizeWithDevicePointer,
 
     # high level OpenCL functions
     cuECCGetErrorName,
