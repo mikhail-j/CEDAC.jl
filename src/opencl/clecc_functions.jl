@@ -144,3 +144,7 @@ end
 function clECCGetTotalErrorsSizeWithCLMem(handle::clECCHandle_t, device_memory::cl_mem, errors_size::Ptr{Csize_t})::Cint
     return ccall((:clECCGetTotalErrorsSizeWithCLMem, libclecc), Cint, (clECCHandle_t, cl_mem, Ptr{Csize_t},), handle, device_memory, errors_size)
 end
+
+function clECCEDAC(handle::clECCHandle_t, memory_object::clECCMemObject_t)::Cint
+    return ccall((:clECCEDAC, libclecc), Cint, (clECCHandle_t, clECCMemObject_t,), handle, memory_object)
+end

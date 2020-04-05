@@ -132,3 +132,7 @@ end
 function cuECCGetTotalErrorsSizeWithDevicePointer(handle::cudaECCHandle_t, device_memory::CUdeviceptr, errors_size::Ptr{Csize_t})::Cint
     return ccall((:cuECCGetTotalErrorsSizeWithDevicePointer, libcuecc), Cint, (cudaECCHandle_t, CUdeviceptr, Ptr{Csize_t},), handle, device_memory, errors_size)
 end
+
+function cuECCEDAC(handle::cudaECCHandle_t, memory_object::cudaECCMemoryObject_t)::Cint
+    return ccall((:cuECCEDAC, libcuecc), Cint, (cudaECCHandle_t, cudaECCMemoryObject_t,), handle, memory_object)
+end

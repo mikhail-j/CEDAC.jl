@@ -49,6 +49,7 @@ export
     cuECCGetTotalErrorsWithDevicePointer,
     cuECCGetTotalErrorsSize,
     cuECCGetTotalErrorsSizeWithDevicePointer,
+    cuECCEDAC,
 
     # high level OpenCL functions
     cuECCGetErrorName,
