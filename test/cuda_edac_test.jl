@@ -67,8 +67,12 @@ parity_A = cuECCGetMemoryObjectParityBits(handle, mem_A)
 
 parity_B = cuECCGetMemoryObjectParityBitsWithDevicePointer(handle, d_B.ptr)
 
+@test (cuECCEDAC(handle, mem_A) == CUDA_EDAC_SUCCESS)
+
 # unlock EDAC mutex
 @test (cuECCUnlockEDACMutex(handle) == CUDA_EDAC_SUCCESS)
+
+@test (cuECCEDAC(handle, mem_A) == CUDA_EDAC_SUCCESS)
 
 @test (cuECCGetTotalErrorsSizeWithDevicePointer(handle, d_A.ptr) === Csize_t(2 * sizeof(UInt64)))
 

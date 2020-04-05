@@ -81,8 +81,12 @@ parity_A = clECCGetMemObjectParityBits(handle, mem_A)
 
 parity_B = clECCGetMemObjectParityBitsWithCLMem(handle, d_B)
 
+@test (clECCEDAC(handle, mem_A) == OPENCL_EDAC_SUCCESS)
+
 # unlock EDAC mutex
 @test (clECCUnlockEDACMutex(handle) == OPENCL_EDAC_SUCCESS)
+
+@test (clECCEDAC(handle, mem_A) == OPENCL_EDAC_SUCCESS)
 
 @test (clECCGetTotalErrorsSizeWithCLMem(handle, d_A) === Csize_t(2 * sizeof(UInt64)))
 
