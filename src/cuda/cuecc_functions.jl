@@ -116,3 +116,19 @@ end
 function cuECCGetTotalErrorsWithDevicePointer(handle::cudaECCHandle_t, device_memory::CUdeviceptr, errors::Ptr{UInt64}, error_size::Csize_t)::Cint
     return ccall((:cuECCGetTotalErrorsWithDevicePointer, libcuecc), Cint, (cudaECCHandle_t, CUdeviceptr, Ptr{UInt64}, Csize_t,), handle, device_memory, errors, error_size)
 end
+
+function cuECCGetTotalErrorsSize(memory_object::cudaECCMemoryObject_t, errors_size::Array{Csize_t, 1})::Cint
+    return ccall((:cuECCGetTotalErrorsSize, libcuecc), Cint, (cudaECCMemoryObject_t, Ref{Csize_t},), memory_object, Base.cconvert(Ref{Csize_t}, errors_size))
+end
+
+function cuECCGetTotalErrorsSize(memory_object::cudaECCMemoryObject_t, errors_size::Ptr{Csize_t})::Cint
+    return ccall((:cuECCGetTotalErrorsSize, libcuecc), Cint, (cudaECCMemoryObject_t, Ptr{Csize_t},), memory_object, errors_size)
+end
+
+function cuECCGetTotalErrorsSizeWithDevicePointer(handle::cudaECCHandle_t, device_memory::CUdeviceptr, errors_size::Array{Csize_t, 1})::Cint
+    return ccall((:cuECCGetTotalErrorsSizeWithDevicePointer, libcuecc), Cint, (cudaECCHandle_t, CUdeviceptr, Ref{Csize_t},), handle, device_memory, Base.cconvert(Ref{Csize_t}, errors_size))
+end
+
+function cuECCGetTotalErrorsSizeWithDevicePointer(handle::cudaECCHandle_t, device_memory::CUdeviceptr, errors_size::Ptr{Csize_t})::Cint
+    return ccall((:cuECCGetTotalErrorsSizeWithDevicePointer, libcuecc), Cint, (cudaECCHandle_t, CUdeviceptr, Ptr{Csize_t},), handle, device_memory, errors_size)
+end

@@ -107,3 +107,21 @@ function cuECCGetMemoryObjectParityBitsWithDevicePointer(handle::cudaECCHandle_t
 
     return pop!(parity_memory)
 end
+
+function cuECCGetTotalErrorsSize(memory_object::cudaECCMemoryObject_t)::Csize_t
+    local total_errors_size::Array{Csize_t, 1} = zeros(Csize_t, 1)
+
+    local result::Cint = cuECCGetTotalErrorsSize(memory_object, total_errors_size)
+    @assert (result == CUDA_EDAC_SUCCESS) ("cuECCGetTotalErrorsSize() error: " * cuECCGetErrorName(result))
+
+    return pop!(total_errors_size)
+end
+
+function cuECCGetTotalErrorsSizeWithDevicePointer(handle::cudaECCHandle_t, device_memory::CUdeviceptr)::Csize_t
+    local total_errors_size::Array{Csize_t, 1} = zeros(Csize_t, 1)
+
+    local result::Cint = cuECCGetTotalErrorsSizeWithDevicePointer(handle, device_memory, total_errors_size)
+    @assert (result == CUDA_EDAC_SUCCESS) ("cuECCGetTotalErrorsSizeWithDevicePointer() error: " * cuECCGetErrorName(result))
+
+    return pop!(total_errors_size)
+end
