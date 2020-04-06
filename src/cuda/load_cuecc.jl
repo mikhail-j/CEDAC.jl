@@ -21,6 +21,6 @@ using Libdl
 
 if (Sys.WORD_SIZE == 32)
     const libcuecc = Libdl.find_library(["libcuecc", "cuecc"], ["/lib/"])
-elseif (Sys.WORD_SIZE == 32)
+elseif (Sys.WORD_SIZE == 64)
     const libcuecc = Libdl.find_library(["libcuecc", "cuecc"], ["/lib64/"])
 end
