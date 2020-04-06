@@ -19,4 +19,8 @@
 
 using Libdl
 
-const libclecc = Libdl.find_library(["libclecc", "clecc"])
+if (Sys.WORD_SIZE == 32)
+    const libclecc = Libdl.find_library(["libclecc", "clecc"], ["/lib/"])
+elseif (Sys.WORD_SIZE == 64)
+    const libclecc = Libdl.find_library(["libclecc", "clecc"], ["/lib64/"])
+end

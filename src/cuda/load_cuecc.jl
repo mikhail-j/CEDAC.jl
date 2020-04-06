@@ -19,4 +19,8 @@
 
 using Libdl
 
-const libcuecc = Libdl.find_library(["libcuecc", "cuecc"])
+if (Sys.WORD_SIZE == 32)
+    const libcuecc = Libdl.find_library(["libcuecc", "cuecc"], ["/lib/"])
+elseif (Sys.WORD_SIZE == 32)
+    const libcuecc = Libdl.find_library(["libcuecc", "cuecc"], ["/lib64/"])
+end
